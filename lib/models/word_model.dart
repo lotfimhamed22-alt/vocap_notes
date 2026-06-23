@@ -42,16 +42,16 @@ class WordModel {
   }
 
   // delete example word
-  WordModel deleteExampleWord(String example, bool isArabicExample) {
+  WordModel deleteExampleWord(int indexAtDatabase, bool isArabicExample) {
     List<String> newExample = _initializeNewExample(isArabicExample);
-    newExample.remove(example);
+    newExample.removeAt(indexAtDatabase);
     return _getWordAfterExampleWord(newExample, isArabicExample);
   }
 
   // decrement index
   WordModel decrementIndexAtDatabase() {
     return WordModel(
-      indexAtDatabase: indexAtDatabase-1,
+      indexAtDatabase: indexAtDatabase - 1,
       text: text,
       isArabic: isArabic,
       colorCode: colorCode,
@@ -92,7 +92,7 @@ class WordModel {
     );
   }
 
-  // reference code to similar word
+  // reference code to example word
   List<String> _initializeNewExample(bool isArabicExample) {
     if (isArabicExample) {
       return List.from(arabicExamples);
