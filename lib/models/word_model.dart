@@ -57,7 +57,6 @@ class WordModel {
       colorCode: colorCode,
       arabicSimilarWord: arabicSimilarWord,
       englishSimilarWord: englishSimilarWord,
-
       arabicExamples: arabicExamples,
       englishExamples: englishExamples,
     );

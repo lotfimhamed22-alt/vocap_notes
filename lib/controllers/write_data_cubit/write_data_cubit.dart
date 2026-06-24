@@ -12,22 +12,26 @@ class WriteDataCubit extends Cubit<WriteDataCubitState> {
   static WriteDataCubit get(BuildContext context) => BlocProvider.of(context);
   // attributes collected from UI
   final Box box = Hive.box(HiveConstants.wordsBox);
-  String text = "";
+  String text = '';
   bool isArabic = true;
-  int colorCode = 0xFF4A47A3;
+  int colorCode = 0xFF2196F3;
   // methodes
-  void _updateText(String text) {
+  void updateText(String text) {
     this.text = text;
+    emit(WriteDataCubitInitial());
   }
 
   //
-  void _updateIsArabic(bool isArabic) {
+
+  void updateIsArabic(bool isArabic) {
     this.isArabic = isArabic;
+    emit(WriteDataCubitInitial());
   }
 
   //
-  void _updateColorCode(int colorCode) {
+  void updateColorCode(int colorCode) {
     this.colorCode = colorCode;
+    emit(WriteDataCubitInitial());
   }
 
   // add word
